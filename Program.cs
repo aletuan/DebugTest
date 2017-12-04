@@ -18,6 +18,15 @@ namespace DebugTest
             #if MySymbol
                 Console.WriteLine("A custom symbol is defined");
             #endif
+
+            #warning This code is obsolete
+            Console.WriteLine("Hello World");
+
+            /*
+            #if DEBUG
+            #error Debug build is not allowed
+            #endif
+            */
         }
 
         static void TimerCallback(Object o)
