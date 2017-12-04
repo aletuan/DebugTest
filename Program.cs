@@ -37,6 +37,11 @@ namespace DebugTest
 
             //this will not be called in Release
             Log("This is should not be show in Release mode");
+
+            //create new Person object for inspectation
+            Person p = new Person("Tuan Anh", "Le");
+            Console.WriteLine("Person name {0}", p.FirstName);
+            
         }
 
         static void TimerCallback(Object o)

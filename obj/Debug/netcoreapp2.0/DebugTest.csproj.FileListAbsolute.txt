@@ -8,3 +8,4 @@
 /Users/tuananhle/Documents/GitHub/DebugTest/obj/Debug/netcoreapp2.0/DebugTest.AssemblyInfo.cs
 /Users/tuananhle/Documents/GitHub/DebugTest/obj/Debug/netcoreapp2.0/DebugTest.dll
 /Users/tuananhle/Documents/GitHub/DebugTest/obj/Debug/netcoreapp2.0/DebugTest.pdb
+/Users/tuananhle/Documents/GitHub/DebugTest/obj/Debug/netcoreapp2.0/DebugTest.csprojResolveAssemblyReference.cache
