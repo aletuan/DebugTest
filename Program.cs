@@ -1,4 +1,7 @@
-﻿using System;
+﻿// define own symbol
+#define MySymbol
+
+using System;
 using System.Threading;
 
 namespace DebugTest
@@ -12,6 +15,9 @@ namespace DebugTest
 
             // checking directive for preprocessor
             DebugDirective();
+            #if MySymbol
+                Console.WriteLine("A custom symbol is defined");
+            #endif
         }
 
         static void TimerCallback(Object o)
