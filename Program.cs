@@ -7,14 +7,27 @@ namespace DebugTest
     {
         static void Main(string[] args)
         {
-            Timer t = new Timer(TimerCallback, null, 0, 2000);
-            Console.ReadLine();
+            //Timer t = new Timer(TimerCallback, null, 0, 2000);
+            //Console.ReadLine();
+
+            // checking directive for preprocessor
+            DebugDirective();
         }
 
         static void TimerCallback(Object o)
         {
             Console.WriteLine("In TimerCallback: " + DateTime.Now);
             GC.Collect();
+        }
+
+        //managing directive
+        static void DebugDirective()
+        {
+            #if DEBUG
+                Console.WriteLine("Debug mode");
+            #else 
+                Console.WriteLine("Not debug");
+            #endif
         }
     }
 }
