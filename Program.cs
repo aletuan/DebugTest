@@ -3,6 +3,7 @@
 
 using System;
 using System.Threading;
+using System.Diagnostics;
 
 namespace DebugTest
 {
@@ -27,6 +28,15 @@ namespace DebugTest
             #error Debug build is not allowed
             #endif
             */
+            #pragma warning disable
+            while(false)
+            {
+                Console.WriteLine("I should see a warning here");
+            }
+            #pragma warning restore
+
+            //this will not be called in Release
+            Log("This is should not be show in Release mode");
         }
 
         static void TimerCallback(Object o)
@@ -43,6 +53,13 @@ namespace DebugTest
             #else 
                 Console.WriteLine("Not debug");
             #endif
+        }
+
+        //Using conditional attribute
+        [Conditional("DEBUG")]
+        private static void Log(string message)
+        {
+            Console.WriteLine("message");
         }
     }
 }
