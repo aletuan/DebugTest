@@ -42,6 +42,13 @@ namespace DebugTest
             Person p = new Person("Tuan Anh", "Le");
             Console.WriteLine("Person name {0}", p.FirstName);
             
+            //using the Trace class
+            Debug.WriteLine("Starting application");
+            Debug.Indent();
+            int i = 1 + 2;
+            Debug.Assert(i == 3);
+            //Debug.Assert(i == 4);
+            Debug.WriteLineIf(i > 0, "i is greater than 0");
         }
 
         static void TimerCallback(Object o)
