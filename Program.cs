@@ -2,6 +2,7 @@
 #define MySymbol
 
 using System;
+using System.IO;
 using System.Threading;
 using System.Diagnostics;
 
@@ -49,6 +50,21 @@ namespace DebugTest
             Debug.Assert(i == 3);
             //Debug.Assert(i == 4);
             Debug.WriteLineIf(i > 0, "i is greater than 0");
+
+            // using TraceSource
+            Stream outputFile = File.Create("tracefile.txt");
+            TextWriterTraceListener textListener = new TextWriterTraceListener(outputFile);
+
+            TraceSource traceSource = new TraceSource("myTraceSource", SourceLevels.All);
+            traceSource.Listeners.Clear();
+            traceSource.Listeners.Add(textListener);
+            traceSource.TraceInformation("Tracing application");
+            traceSource.TraceEvent(TraceEventType.Critical, 0, "Critical trace");
+            traceSource.TraceData(TraceEventType.Information, 1, new object[] {"a", "b", "c"});
+            traceSource.Flush();
+            traceSource.Close();
+
+            //using eventlog - does not exist in .NET 2.0            
         }
 
         static void TimerCallback(Object o)
